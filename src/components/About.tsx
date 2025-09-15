@@ -2,6 +2,7 @@
 
 import { motion } from 'framer-motion';
 import { Code, Coffee, Zap, Users } from 'lucide-react';
+import Image from 'next/image';
 
 const About = () => {
   const containerVariants = {
@@ -62,11 +63,15 @@ const About = () => {
                   whileHover={{ scale: 1.05 }}
                   className='w-80 h-80 mx-auto lg:mx-0 rounded-2xl bg-gradient-to-br from-blue-500 via-purple-500 to-cyan-500 p-1'
                 >
-                  <div className='w-full h-full rounded-2xl bg-gray-900 flex items-center justify-center overflow-hidden'>
-                    {/* Placeholder for avatar - you can replace with actual image */}
-                    <div className='w-full h-full bg-gradient-to-br from-gray-700 to-gray-800 flex items-center justify-center'>
-                      <div className='text-8xl text-gray-400'>AR</div>
-                    </div>
+                 <div className="w-full h-full rounded-2xl bg-gray-900 flex items-center justify-center overflow-hidden">
+                 <Image
+    src="/ahad.jpg" // public/ahad.jpg me image rakho
+    alt="Ahad Ramzan"
+    width={500}
+    height={500}
+    className="w-full h-full object-cover rounded-2xl"
+  />
+
                   </div>
                 </motion.div>
 

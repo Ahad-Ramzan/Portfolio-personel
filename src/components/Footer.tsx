@@ -124,7 +124,7 @@ const Footer = () => {
               transition={{ delay: 0.3 }}
             >
               <h4 className='text-lg font-semibold text-white mb-6'>Connect</h4>
-              <div className='gap-y-4'>
+              <div className='gap-y-6'>
                 {socialLinks.map(social => (
                   <motion.a
                     key={social.label}
@@ -134,7 +134,7 @@ const Footer = () => {
                     whileHover={{ scale: 1.05, x: 5 }}
                     className={`flex items-center gap-x-3 text-gray-400 ${social.color} transition-all duration-300 group`}
                   >
-                    <div className='p-2 bg-gray-800 rounded-lg group-hover:bg-gray-700 transition-colors duration-300'>
+                    <div className='p-2 bg-gray-800 rounded-lg group-hover:bg-gray-700 transition-colors duration-300 my-2'>
                       <social.icon size={16} />
                     </div>
                     <span>{social.label}</span>

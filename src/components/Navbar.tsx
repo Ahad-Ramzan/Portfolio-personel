@@ -38,7 +38,7 @@ const Navbar = () => {
           {/* Logo */}
           <motion.div
             whileHover={{ scale: 1.05 }}
-            className='text-2xl font-bold gradient-text'
+            className='hidden sm:block text-2xl font-bold gradient-text'
           >
             Ahad Ramzan
           </motion.div>

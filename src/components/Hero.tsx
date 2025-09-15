@@ -57,13 +57,13 @@ const Hero = () => {
       </div>
 
       {/* Gradient Orbs */}
-      <div className='absolute top-20 left-10 w-72 h-72 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full opacity-20 blur-3xl animate-pulse'></div>
+      <div className='absolute left-10 w-72 h-72 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full opacity-20 blur-3xl animate-pulse'></div>
       <div
         className='absolute bottom-20 right-10 w-72 h-72 bg-gradient-to-r from-purple-500 to-cyan-500 rounded-full opacity-20 blur-3xl animate-pulse'
         style={{ animationDelay: '2s' }}
       ></div>
 
-      <div className='container mx-auto px-6 text-center relative z-10'>
+      <div className='container mt-20 mx-auto px-6 text-center relative z-10'>
         <motion.div
           variants={containerVariants}
           initial='hidden'
