@@ -1,0 +1,16 @@
+node_modules
+.next
+.vercel
+.git
+*.log
+.env*
+public
+dist
+build
+coverage
+.nyc_output
+*.tgz
+*.tar.gz
+*.tar
+.DS_Store
+Thumbs.db
