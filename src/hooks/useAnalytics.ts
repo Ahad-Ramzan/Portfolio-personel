@@ -13,7 +13,7 @@ export function useAnalytics() {
   const [sessionId] = useState(() => generateSessionId());
   const [startTime] = useState(() => Date.now());
   const [maxScrollDepth, setMaxScrollDepth] = useState(0);
-  const scrollTimeoutRef = useRef<NodeJS.Timeout>();
+  const scrollTimeoutRef = useRef<NodeJS.Timeout | undefined>(undefined);
 
   // Track page view on mount
   useEffect(() => {
