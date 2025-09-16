@@ -49,9 +49,9 @@ const Footer = () => {
   return (
     <footer className='bg-gray-900/80 backdrop-blur-sm border-t border-gray-800'>
       <div className='container mx-auto px-6 py-12'>
-        <div className='grid md:grid-cols-2 lg:grid-cols-4 gap-8'>
+        <div className='grid grid-cols-4 md:grid-cols-2 lg:grid-cols-4 gap-8'>
           {/* Brand Section */}
-          <div className='lg:col-span-2'>
+          <div className='col-span-4 lg:col-span-2'>
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -88,7 +88,7 @@ const Footer = () => {
           </div>
 
           {/* Quick Links */}
-          <div>
+          <div className='col-span-2 md:col-span-1'>
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
