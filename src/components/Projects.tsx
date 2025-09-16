@@ -1,9 +1,22 @@
 'use client';
 
-import { motion } from 'framer-motion';
+import { motion, useInView } from 'framer-motion';
 import { ExternalLink, Github, Eye, Code } from 'lucide-react';
+import { useRef, useState, useEffect } from 'react';
 
 const Projects = () => {
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: true, amount: 0.2 });
+
+  // Ensure projects stay visible after animation
+  const [hasAnimated, setHasAnimated] = useState(false);
+
+  useEffect(() => {
+    if (isInView && !hasAnimated) {
+      setHasAnimated(true);
+    }
+  }, [isInView, hasAnimated]);
+
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
@@ -101,13 +114,7 @@ const Projects = () => {
     },
   ];
 
-  const ProjectCard = ({
-    project,
-    index,
-  }: {
-    project: (typeof projects)[0];
-    index: number;
-  }) => (
+  const ProjectCard = ({ project }: { project: (typeof projects)[0] }) => (
     <motion.div
       variants={itemVariants}
       whileHover={{ y: -10 }}
@@ -256,10 +263,10 @@ const Projects = () => {
     <section id='projects' className='py-20 bg-gray-900/50'>
       <div className='container mx-auto px-6'>
         <motion.div
+          ref={ref}
           variants={containerVariants}
           initial='hidden'
-          whileInView='visible'
-          viewport={{ once: true }}
+          animate={hasAnimated ? 'visible' : isInView ? 'visible' : 'hidden'}
           className='max-w-7xl mx-auto'
         >
           {/* Section Header */}
@@ -275,9 +282,15 @@ const Projects = () => {
           </motion.div>
 
           {/* Projects Grid */}
-          <div className='grid md:grid-cols-2 xl:grid-cols-3 gap-8'>
+          <div
+            className='grid md:grid-cols-2 xl:grid-cols-3 gap-8'
+            style={{
+              minHeight: '500px',
+              opacity: hasAnimated ? 1 : isInView ? 1 : 0.3,
+            }}
+          >
             {projects.map((project, index) => (
-              <ProjectCard key={index} project={project} index={index} />
+              <ProjectCard key={index} project={project} />
             ))}
           </div>
 

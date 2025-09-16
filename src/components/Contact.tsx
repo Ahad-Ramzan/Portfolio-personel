@@ -13,24 +13,23 @@ import {
   AlertCircle,
 } from 'lucide-react';
 import { useState } from 'react';
+import { useAnalytics } from '@/hooks/useAnalytics';
+import type { ContactFormInput, SubmitStatus, FieldErrors } from '@/types';
 
 const Contact = () => {
-  const [formData, setFormData] = useState({
+  const { trackContact } = useAnalytics();
+  const [formData, setFormData] = useState<ContactFormInput>({
     name: '',
     email: '',
     message: '',
   });
 
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const [submitStatus, setSubmitStatus] = useState<{
-    type: 'success' | 'error' | null;
-    message: string;
-  }>({ type: null, message: '' });
-  const [fieldErrors, setFieldErrors] = useState<{
-    name?: string;
-    email?: string;
-    message?: string;
-  }>({});
+  const [submitStatus, setSubmitStatus] = useState<SubmitStatus>({
+    type: null,
+    message: '',
+  });
+  const [fieldErrors, setFieldErrors] = useState<FieldErrors>({});
 
   const validateForm = () => {
     const errors: typeof fieldErrors = {};
@@ -79,6 +78,14 @@ const Contact = () => {
       const data = await response.json();
 
       if (response.ok) {
+        // Track successful contact form submission
+        trackContact(
+          formData.name,
+          formData.email,
+          formData.message,
+          'contact-form'
+        );
+
         setSubmitStatus({
           type: 'success',
           message: "Thank you for your message! I'll get back to you soon.",

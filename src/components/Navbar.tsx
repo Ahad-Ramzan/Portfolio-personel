@@ -2,7 +2,8 @@
 
 import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
-import { Menu, X, Download, Mail } from 'lucide-react';
+import { Menu, X, Download, Mail, BarChart3 } from 'lucide-react';
+import ThemeToggle from './ThemeToggle';
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -61,6 +62,19 @@ const Navbar = () => {
 
             {/* CTA Buttons */}
             <div className='flex items-center gap-4 px-4 ml-8'>
+              <ThemeToggle />
+
+              <motion.a
+                href='/admin'
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                className='flex items-center gap-x-2 px-4 py-2 border border-green-500 text-green-400 rounded-full hover:bg-green-500 hover:text-white transition-all duration-300'
+                title='Analytics Dashboard'
+              >
+                <BarChart3 size={16} />
+                <span className='hidden sm:inline'>Analytics</span>
+              </motion.a>
+
               <motion.a
                 href='/cv.pdf'
                 download
@@ -116,6 +130,20 @@ const Navbar = () => {
               ))}
 
               <div className='flex flex-col gap-y-3 pt-4 border-t border-gray-700'>
+                <div className='flex justify-center'>
+                  <ThemeToggle />
+                </div>
+
+                <motion.a
+                  href='/admin'
+                  whileHover={{ scale: 1.02 }}
+                  className='flex items-center justify-center gap-x-2 px-4 py-3 border border-green-500 text-green-400 rounded-full'
+                  onClick={() => setIsOpen(false)}
+                >
+                  <BarChart3 size={16} />
+                  <span>Analytics Dashboard</span>
+                </motion.a>
+
                 <motion.a
                   href='/cv.pdf'
                   download
