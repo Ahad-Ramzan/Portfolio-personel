@@ -1,8 +1,41 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { Code, Coffee, Zap, Users } from 'lucide-react';
+import { Code, Coffee, Layers3, Smartphone, Users, Zap } from 'lucide-react';
 import Image from 'next/image';
+import { useEffect, useState } from 'react';
+
+const AnimatedCounter = ({ value }: { value: string }) => {
+  const numericPart = Number.parseInt(value, 10);
+  const suffix = value.replace(String(numericPart), '');
+  const [count, setCount] = useState(0);
+
+  useEffect(() => {
+    let frame = 0;
+    const totalFrames = 40;
+    const start = performance.now();
+    const duration = 1000;
+
+    const animate = (time: number) => {
+      const progress = Math.min((time - start) / duration, 1);
+      const next = Math.round(progress * numericPart);
+      setCount(next);
+      frame += 1;
+      if (progress < 1 && frame < totalFrames) {
+        requestAnimationFrame(animate);
+      }
+    };
+
+    requestAnimationFrame(animate);
+  }, [numericPart]);
+
+  return (
+    <span>
+      {count}
+      {suffix}
+    </span>
+  );
+};
 
 const About = () => {
   const containerVariants = {
@@ -28,10 +61,10 @@ const About = () => {
   };
 
   const stats = [
-    { icon: Code, label: 'Projects Completed', value: '15+' },
-    { icon: Coffee, label: 'Cups of Coffee', value: '1000+' },
-    { icon: Zap, label: 'Lines of Code', value: '50K+' },
-    { icon: Users, label: 'Happy Clients', value: '10+' },
+    { icon: Code, label: 'Projects Completed', value: '8+' },
+    { icon: Coffee, label: 'Cups of Coffee', value: '50+' },
+    { icon: Zap, label: 'Lines of Code', value: '50M+' },
+    { icon: Users, label: 'Happy Clients', value: '8+' },
   ];
 
   return (
@@ -64,13 +97,13 @@ const About = () => {
                   className='w-80 h-80 mx-auto lg:mx-0 rounded-2xl bg-gradient-to-br from-blue-500 via-purple-500 to-cyan-500 p-1'
                 >
                  <div className="w-full h-full rounded-2xl bg-gray-900 flex items-center justify-center overflow-hidden">
-                 <Image
-    src="/ahad.jpg" // public/ahad.jpg me image rakho
-    alt="Ahad Ramzan"
-    width={500}
-    height={500}
-    className="w-full h-full object-cover rounded-2xl"
-  />
+                  <Image
+                    src='/Ahad_Ramzan4.jpeg'
+                    alt='Ahad Ramzan'
+                    width={500}
+                    height={500}
+                    className='w-full h-full object-cover object-top rounded-2xl'
+                  />
 
                   </div>
                 </motion.div>
@@ -101,38 +134,31 @@ const About = () => {
             {/* Content Section */}
             <motion.div variants={itemVariants} className='gap-y-6'>
               <h3 className='text-3xl font-bold text-white mb-6'>
-                Frontend Developer & UI/UX Enthusiast
+                Full Stack Developer | Mobile App Developer
               </h3>
 
               <div className='gap-y-4 text-gray-300 leading-relaxed'>
                 <p>
-                  I&apos;m a passionate Frontend Developer with expertise in modern
-                  web technologies. Currently working at{' '}
+                  I build scalable web applications and production-ready mobile
+                  apps using modern full stack technologies. At{' '}
                   <span className='text-blue-400 font-semibold'>
                     Expert System Solution
                   </span>
-                  where I develop cutting-edge React.js and Next.js
-                  applications.
+                  , I deliver client-focused products with clean architecture and
+                  reliable performance.
                 </p>
 
                 <p>
-                  With a strong foundation in computer science from Leads
-                  University and specialized training in web development, I
-                  bring both theoretical knowledge and practical experience to
-                  every project.
+                  Frontend expertise includes React.js, Next.js, Tailwind CSS,
+                  and shadcn-style component systems. On the backend, I work
+                  with Node.js, Express.js, PostgreSQL, and TypeORM to build
+                  robust APIs and data layers.
                 </p>
 
                 <p>
-                  I specialize in creating responsive, user-friendly interfaces
-                  using React, Next.js, and TailwindCSS. My focus is on writing
-                  clean, maintainable code while delivering exceptional user
-                  experiences.
-                </p>
-
-                <p>
-                  When I&apos;m not coding, you&apos;ll find me exploring new
-                  technologies, contributing to open-source projects, or sharing
-                  knowledge with the developer community.
+                  I also build React Native (Expo) mobile applications with
+                  TypeScript, and I enjoy monorepo-based architecture for
+                  scalable product development across web and mobile.
                 </p>
               </div>
 
@@ -141,10 +167,14 @@ const About = () => {
                 {[
                   'React.js',
                   'Next.js',
-                  'TypeScript',
-                  'TailwindCSS',
+                  'Tailwind CSS',
                   'Node.js',
-                  'Git',
+                  'Express.js',
+                  'PostgreSQL',
+                  'TypeORM',
+                  'React Native (Expo)',
+                  'TypeScript',
+                  'Monorepo Architecture',
                 ].map(skill => (
                   <motion.span
                     key={skill}
@@ -167,17 +197,47 @@ const About = () => {
               <motion.div
                 key={index}
                 whileHover={{ scale: 1.05, y: -5 }}
-                className='text-center p-6 glass rounded-xl'
+                className='text-center p-6 glass rounded-xl border border-white/5 hover:border-blue-500/30 transition-all duration-300'
               >
                 <div className='w-16 h-16 mx-auto mb-4 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full flex items-center justify-center'>
                   <stat.icon className='text-white' size={28} />
                 </div>
                 <div className='text-3xl font-bold text-white mb-2'>
-                  {stat.value}
+                  <AnimatedCounter value={stat.value} />
                 </div>
                 <div className='text-gray-400 text-sm'>{stat.label}</div>
               </motion.div>
             ))}
+          </motion.div>
+
+          <motion.div
+            variants={itemVariants}
+            className='grid md:grid-cols-2 gap-6 mt-12'
+          >
+            <div className='glass rounded-xl p-6 border border-white/5'>
+              <div className='flex items-center gap-3 mb-3'>
+                <Layers3 className='text-blue-400' size={20} />
+                <h4 className='text-lg font-semibold text-white'>
+                  Scalable Systems
+                </h4>
+              </div>
+              <p className='text-gray-300 text-sm'>
+                Built with monorepo-based architecture and reusable modules for
+                long-term maintainability.
+              </p>
+            </div>
+            <div className='glass rounded-xl p-6 border border-white/5'>
+              <div className='flex items-center gap-3 mb-3'>
+                <Smartphone className='text-purple-400' size={20} />
+                <h4 className='text-lg font-semibold text-white'>
+                  Mobile + Web Delivery
+                </h4>
+              </div>
+              <p className='text-gray-300 text-sm'>
+                Consistent user experience across web and mobile with
+                performance-focused, production-ready implementations.
+              </p>
+            </div>
           </motion.div>
         </motion.div>
       </div>

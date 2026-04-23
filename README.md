@@ -96,7 +96,7 @@ Update the content in the component files:
 
 ### CV/Resume
 
-Replace `public/cv.pdf` with your actual CV file.
+Replace `public/Ahad_Ramzan_cv.pdf` with your actual CV file.
 
 ## 📊 SEO Features
 
