@@ -89,10 +89,8 @@ const Hero = () => {
           {/* Tagline */}
           <motion.div variants={itemVariants} className='mb-8'>
             <h2 className='text-xl md:text-2xl lg:text-3xl text-gray-300 font-light'>
-              Frontend Developer –{' '}
-              <span className='text-blue-400'>React.js</span> |{' '}
-              <span className='text-purple-400'>Next.js</span> |{' '}
-              <span className='text-cyan-400'>TailwindCSS</span>
+              Full Stack Developer |{' '}
+              <span className='text-blue-400'>Mobile App Developer</span>
             </h2>
           </motion.div>
 
@@ -101,9 +99,9 @@ const Hero = () => {
             variants={itemVariants}
             className='text-lg text-gray-400 max-w-2xl mx-auto mb-12 leading-relaxed'
           >
-            Passionate about creating exceptional user experiences with modern
-            web technologies. Specializing in React, Next.js, and building
-            scalable, responsive applications.
+            I build scalable web applications and production-ready mobile apps
+            with React.js, Next.js, Node.js, Express.js, PostgreSQL, and React
+            Native (Expo).
           </motion.p>
 
           {/* CTA Buttons */}
@@ -112,7 +110,7 @@ const Hero = () => {
             className='flex flex-col sm:flex-row items-center justify-center gap-6 mb-12'
           >
             <motion.a
-              href='/cv.pdf'
+              href='/Ahad_Ramzan_cv.pdf'
               download
               whileHover={{
                 scale: 1.05,

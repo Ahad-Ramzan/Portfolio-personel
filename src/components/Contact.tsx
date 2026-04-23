@@ -450,7 +450,7 @@ const Contact = () => {
             </p>
             <div className='flex flex-col sm:flex-row items-center justify-center gap-4'>
               <motion.a
-                href='/cv.pdf'
+                href='/Ahad_Ramzan_cv.pdf'
                 download
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}

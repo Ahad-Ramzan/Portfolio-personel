@@ -40,8 +40,11 @@ const Footer = () => {
   const quickLinks = [
     { name: 'Home', href: '#home' },
     { name: 'About', href: '#about' },
+    { name: 'What I Do', href: '#what-i-do' },
     { name: 'Skills', href: '#skills' },
+    { name: 'Tech Stack', href: '#tech-stack' },
     { name: 'Experience', href: '#experience' },
+    { name: 'Highlights', href: '#experience-highlights' },
     { name: 'Projects', href: '#projects' },
     { name: 'Contact', href: '#contact' },
   ];
@@ -62,9 +65,9 @@ const Footer = () => {
                 Ahad Ramzan
               </h3>
               <p className='text-gray-400 leading-relaxed max-w-md'>
-                Frontend Developer passionate about creating exceptional user
-                experiences with modern web technologies. Specializing in React,
-                Next.js, and building scalable, responsive applications.
+                Full Stack Developer and Mobile App Developer focused on
+                production-ready web and mobile products with clean architecture
+                and strong performance.
               </p>
             </motion.div>
 

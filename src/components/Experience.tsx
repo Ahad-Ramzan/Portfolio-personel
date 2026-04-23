@@ -28,25 +28,29 @@ const Experience = () => {
 
   const experiences = [
     {
-      title: 'Frontend Developer',
+      title: 'Full Stack web Developer',
       company: 'Expert System Solution',
-      location: 'Remote',
+      location: 'Gulberg, Lahore, Pakistan',
       period: 'Dec 2024 - Present',
       type: 'Full-time',
       responsibilities: [
-        'Develop and maintain responsive web applications using React.js and Next.js',
-        'Collaborate with design teams to implement pixel-perfect UI/UX designs',
-        'Optimize application performance and ensure cross-browser compatibility',
-        'Implement state management solutions using Zustand and React Context',
-        'Work with RESTful APIs to integrate frontend with backend services',
-        'Write clean, maintainable, and well-documented code following best practices',
-        'Participate in code reviews and contribute to team knowledge sharing',
+        'Build and maintain full stack web applications using React.js, Next.js, Node.js, and Express.js',
+        'Design and implement REST APIs for dashboard, admin, and user-facing workflows',
+        'Develop mobile-ready architecture and cross-platform modules for React Native products',
+        'Manage PostgreSQL data models and integrate TypeORM-based backend services',
+        'Collaborate with design and product stakeholders to deliver client-ready releases',
+        'Improve performance, maintainability, and code quality with scalable architecture patterns',
       ],
       technologies: [
         'React.js',
         'Next.js',
+        'Node.js',
+        'Express.js',
+        'PostgreSQL',
+        'TypeORM',
+        'React Native (Expo)',
         'TypeScript',
-        'TailwindCSS',
+        'Tailwind CSS',
         'Zustand',
         'Git',
       ],
@@ -72,7 +76,7 @@ const Experience = () => {
             </h2>
             <div className='w-24 h-1 bg-gradient-to-r from-blue-500 to-purple-500 mx-auto rounded-full mb-6'></div>
             <p className='text-gray-400 max-w-2xl mx-auto text-lg'>
-              My professional journey in frontend development
+              Professional experience delivering full stack and mobile solutions
             </p>
           </motion.div>
 
